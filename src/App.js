@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Link } from 'react-router-dom';
+import BookShelf from './BookShelf';
+import Search from './Search';
+import * as BooksAPI from './BooksAPI';
 import './App.css';
 
 class App extends Component {
+  state = {
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Route exact path="/" render={() => (
+          <div>
+            <Link to="/search">Search</Link>
+            <BookShelf books={this.state.books.filter((book) => book.shelf === 'currentlyReading')} />
+            <BookShelf books={this.state.books.filter((book) => book.shelf === 'wantToRead')} />
+            <BookShelf books={this.state.books.filter((book) => book.shelf === 'read')} />
+          </div>
+        )} />
+        <Route path="/search" render={() => (
+          <Search />
+        )}/>
       </div>
     );
   }
