@@ -12,7 +12,6 @@ class Search extends Component {
 		})
 	}
 	render() {
-		const { books } = this.props
 		return (
 			<ListBooks books={this.state.books}/>
 		);

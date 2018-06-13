@@ -22,8 +22,11 @@ class App extends Component {
         <Route exact path="/" render={() => (
           <div>
             <Link to="/search">Search</Link>
+            <h1>Currently Reading</h1>
             <BookShelf books={this.state.books.filter((book) => book.shelf === 'currentlyReading')} />
+            <h1>Want to Read</h1>
             <BookShelf books={this.state.books.filter((book) => book.shelf === 'wantToRead')} />
+            <h1>Read</h1>
             <BookShelf books={this.state.books.filter((book) => book.shelf === 'read')} />
           </div>
         )} />

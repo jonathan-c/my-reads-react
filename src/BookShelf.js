@@ -8,7 +8,7 @@ class BookShelf extends Component {
 		return (
 			<div className="bookshelf">
 				{books.map((book) => (
-					<div className="shelved-book">
+					<div className="shelved-book" key={book.id}>
 						<Book book={book}/>
 					</div>
 				))}

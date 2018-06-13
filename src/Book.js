@@ -11,7 +11,6 @@ class Book extends Component {
 				</div>
 				<h3>{book.title}</h3>
 				<h4>{book.authors}</h4>
-				{book.shelf}
 				<BookControl book={book} />
 			</div>
 		);
