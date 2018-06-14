@@ -37,8 +37,6 @@ class ListBooks extends Component {
 
 		return (
 			<div className="list-books">
-				<Link to="/">Go back</Link>
-				<p></p>
 				<input 
 					className="search-books"
 					type="text"
@@ -46,6 +44,8 @@ class ListBooks extends Component {
 					value={query}
 					onChange={(event) => this.updateQuery(event.target.value)}
 				/>
+				<p></p>
+				<Link to="/" className="back-button">Go back</Link>
 				{showingBooks.length !== books.length && (
 					<div className="showing-books">
 						<span>Now showing {showingBooks.length} books of {books.length} total.</span>

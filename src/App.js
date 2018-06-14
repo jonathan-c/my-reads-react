@@ -19,15 +19,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div class="header">
+            <h1>MyReads</h1>
+        </div>
         <Route exact path="/" render={() => (
-          <div>
-            <Link to="/search">Search</Link>
-            <h1>Currently Reading</h1>
-            <BookShelf books={this.state.books.filter((book) => book.shelf === 'currentlyReading')} />
-            <h1>Want to Read</h1>
-            <BookShelf books={this.state.books.filter((book) => book.shelf === 'wantToRead')} />
-            <h1>Read</h1>
-            <BookShelf books={this.state.books.filter((book) => book.shelf === 'read')} />
+          <div className="bookshelves">
+            <Link className="search-button" to="/search">Search</Link>
+            <BookShelf 
+              type="Currently Reading" 
+              alternate="odd" 
+              books={this.state.books.filter((book) => book.shelf === 'currentlyReading')} 
+            />
+            <BookShelf 
+              type="Want to Read" 
+              alternate="even" 
+              books={this.state.books.filter((book) => book.shelf === 'wantToRead')} 
+            />
+            <BookShelf 
+              type="Read" 
+              alternate="odd" 
+              books={this.state.books.filter((book) => book.shelf === 'read')} 
+            />
           </div>
         )} />
         <Route path="/search" render={() => (

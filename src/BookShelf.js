@@ -4,13 +4,13 @@ import Book from './Book';
 class BookShelf extends Component {
 
 	render() {
-		const books = this.props.books
+		const { books, type, alternate } = this.props
 		return (
-			<div className="bookshelf">
+			<div className={"bookshelf "+"book-shelf-"+alternate}>
+				<h2>{type}</h2>
+				<hr/>
 				{books.map((book) => (
-					<div className="shelved-book" key={book.id}>
-						<Book book={book}/>
-					</div>
+					<Book book={book} key={book.id}/>
 				))}
 			</div>
 		);

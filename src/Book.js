@@ -5,7 +5,7 @@ class Book extends Component {
 	render() {
 		const { book } = this.props
 		return (
-			<div key={book.id}>
+			<div key={book.id} className="shelved-book">
 				<div className="book-thumbnail-img">
 					<img src={book.imageLinks.smallThumbnail} alt="book-cover" />
 				</div>
