@@ -6,7 +6,7 @@ class BookShelf extends Component {
 	render() {
 		const { books, type, alternate } = this.props
 		return (
-			<div className={"bookshelf "+"book-shelf-"+alternate}>
+			<div className={"bookshelf book-shelf-"+alternate}>
 				<h2>{type}</h2>
 				<hr/>
 				{books.map((book) => (

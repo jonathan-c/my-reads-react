@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class="header">
+        <div className="header">
             <h1>MyReads</h1>
         </div>
         <Route exact path="/" render={() => (
