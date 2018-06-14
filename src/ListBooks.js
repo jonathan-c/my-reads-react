@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Book from './Book';
 import sortBy from 'sort-by';
 import escapeRegExp from 'escape-string-regexp';
@@ -36,6 +37,8 @@ class ListBooks extends Component {
 
 		return (
 			<div className="list-books">
+				<Link to="/">Go back</Link>
+				<p></p>
 				<input 
 					className="search-books"
 					type="text"
